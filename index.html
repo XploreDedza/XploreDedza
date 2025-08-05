@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUREF Community Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>MUREF Community Initiative</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="apply.html">Apply</a>
+      <a href="forum.html">Forum</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <!-- Language Toggle -->
+  <div class="language-toggle">
+    <label for="lang-toggle">Language:</label>
+    <select id="lang-toggle">
+      <option value="en">English</option>
+      <option value="tk">Tumbuka</option>
+    </select>
+  </div>
+
+  <!-- Loan Calculator -->
+  <section id="calculator" class="calculator-section">
+    <h2 data-lang="calculator">Loan Calculator</h2>
+    <label for="loan-amount">Loan Amount (MK):</label>
+    <input type="number" id="loan-amount" />
+    <label for="loan-term">Loan Term (Months):</label>
+    <input type="number" id="loan-term" />
+    <button onclick="calculateLoan()">Calculate</button>
+    <p id="monthly-payment"></p>
+  </section>
+
+  <!-- Login -->
+  <section id="login">
+    <h2>Group Login</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="userLogin(email.value, password.value)">Login</button>
+  </section>
+
+  <!-- Admin Dashboard -->
+  <section id="admin-dashboard">
+    <h2>Admin Dashboard</h2>
+    <p>Total Loans Disbursed: <span id="total-loans">Loading...</span></p>
+    <p>Repayment Rate: <span id="repayment-rate">Loading...</span></p>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Training Resources</h2>
+    <ul>
+      <li><a href="docs/business-basics.pdf" target="_blank">Business Basics (PDF)</a></li>
+      <li><a href="videos/farming-tips.mp4" target="_blank">Farming Tips (Video)</a></li>
+    </ul>
+  </section>
+
+  <!-- Video Banner -->
+  <section id="video-banner">
+    <h2>Meet MUREF</h2>
+    <video controls width="100%">
+      <source src="videos/muref-intro.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <!-- Privacy Modal -->
+  <div id="privacy-modal" class="modal">
+    <div class="modal-content">
+      <p>We use your data to improve services and ensure secure loan processing. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+      <button onclick="document.getElementById('privacy-modal').style.display='none'">Accept</button>
+    </div>
+  </div>
+</body>
+</html>

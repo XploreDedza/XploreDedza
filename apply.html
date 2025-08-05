@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for a Loan</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Apply for a Loan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="forum.html">Forum</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <section>
+    <form id="loan-form">
+      <label for="group-name">Group Name:</label>
+      <input type="text" id="group-name" required />
+
+      <label for="loan-amount">Loan Amount (MK):</label>
+      <input type="number" id="loan-amount" required />
+
+      <label for="purpose">Purpose of Loan:</label>
+      <textarea id="purpose" rows="3" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+    <p id="application-status"></p>
+  </section>
+</body>
+</html>

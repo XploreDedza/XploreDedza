@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Forum</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Community Forum</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="apply.html">Apply</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <section id="forum">
+    <form id="forum-form">
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Post</button>
+    </form>
+
+    <div id="posts">
+      <h2>Recent Discussions</h2>
+      <!-- Posts loaded from Firestore -->
+    </div>
+  </section>
+</body>
+</html>
