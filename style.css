@@ -1,0 +1,119 @@
+:root{
+  --green:#2e7d32;
+  --gold:#fbc02d;
+  --beige:#f5f5dc;
+  --white:#ffffff;
+  --muted:#6b6b6b;
+  --card-radius:12px;
+  --container:1200px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--beige);color:#222}
+.container{max-width:var(--container);margin:0 auto;padding:1rem}
+
+/* Header */
+.site-header{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9));backdrop-filter: blur(6px);position:sticky;top:0;z-index:60;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.5rem 1rem}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:8px;object-fit:cover}
+.masked-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;color:var(--green);background:url('/images/mask.jpg') center/cover; -webkit-background-clip:text;color:transparent}
+
+/* Nav */
+.nav-list{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+.nav-list a{text-decoration:none;color:#2b2b2b;font-weight:600}
+.header-actions{display:flex;align-items:center;gap:12px}
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:#222;margin:4px 0;border-radius:2px}
+
+/* Mobile menu */
+.mobile-menu{display:none;padding:12px;background:#fff}
+.mobile-menu ul{list-style:none;margin:0;padding:0}
+.mobile-menu a{display:block;padding:8px 0;color:var(--green)}
+
+/* Hero */
+.hero{position:relative;height:64vh;min-height:420px;overflow:hidden;border-bottom:1px solid rgba(0,0,0,0.04)}
+.hero-slider{position:absolute;inset:0;display:flex;transition:transform 1s ease;will-change:transform}
+.slide{flex:0 0 100%;background-size:cover;background-position:center;filter:contrast(1.02) saturate(1)}
+.hero-overlay{position:relative;z-index:10;height:100%;display:flex;align-items:center}
+.hero-canvas{position:absolute;inset:0;pointer-events:none;z-index:5}
+.hero-content{position:relative;z-index:10;color:var(--white);max-width:760px;padding:2rem;border-radius:12px}
+.kicker{font-family:'Poppins';color:var(--gold);font-weight:600;margin:0}
+.hero-title{font-family:'Poppins';font-size:38px;margin:8px 0;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.35)}
+.hero-sub{max-width:560px;opacity:0.95}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+.btn-primary{background:linear-gradient(90deg,var(--green),#256b2a);color:#fff;box-shadow:0 6px 18px rgba(46,125,50,0.18)}
+.btn-secondary{background:#fff;color:var(--green);border:2px solid rgba(255,255,255,0.12)}
+
+/* Weather */
+.weather-section{padding:2rem 0}
+.weather-card{display:flex;gap:18px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06);align-items:stretch}
+.weather-left{flex:1}
+.weather-right{width:320px;position:relative}
+.weather-condition{color:var(--muted)}
+.temp{display:flex;align-items:flex-end;gap:12px}
+.temp span{font-size:36px;font-weight:600;color:var(--green)}
+.metrics{display:flex;gap:10px;color:var(--muted);font-size:13px;margin-top:8px}
+.weather-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+.rain-graph{position:relative;z-index:2;padding-top:8px}
+.forecast-text{font-size:13px;margin:6px 0;color:#444}
+.weather-tabs{display:flex;gap:6px;margin-top:8px}
+.weather-tabs .tab{background:none;border:none;color:var(--green);padding:6px 8px;border-radius:8px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin:2rem 0}
+.about-list{list-style:disc;margin-left:20px;color:#333}
+
+/* Explore grid */
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:1rem}
+.card{background:#fff;border-radius:12px;padding:0;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,0.05)}
+.card img{width:100%;height:160px;object-fit:cover}
+.card h3{font-family:'Poppins';margin:12px 16px 0}
+.card p{margin:8px 16px 16px;color:var(--muted)}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:1rem}
+.guide-card{background:#fff;border-radius:12px;padding:14px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.guide-card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+
+/* Booking */
+.booking{padding:48px 0;background-size:cover;background-position:center;color:#fff}
+.booking-inner{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+.booking-info h2{font-family:'Poppins';font-size:28px}
+.booking-form{background:rgba(255,255,255,0.95);padding:16px;border-radius:12px;color:#222}
+.booking-form label{display:block;margin-bottom:10px;font-size:14px}
+.booking-form input, .booking-form select{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-top:6px}
+
+/* Testimonials */
+.testi-carousel{display:flex;gap:12px;overflow:hidden}
+.testi-slide{min-width:100%;background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+
+/* Blog */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.blog-card{background:#fff;border-radius:12px;overflow:hidden}
+.blog-card img{width:100%;height:160px;object-fit:cover}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+.gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+
+/* Advertise */
+.advertise-inner{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;color:#fff;padding:36px}
+
+/* Footer */
+.site-footer{background:#fff;padding:36px;border-radius:12px;margin-top:32px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.map iframe{width:100%;height:160px;border:0;border-radius:8px}
+.footer-note{text-align:center;margin-top:18px;color:#666}
+
+/* Responsive */
+@media (max-width:900px){
+  .about-grid, .booking-inner{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .hamburger{display:block}
+  .nav{display:none}
+  .mobile-menu{display:block}
+              }
