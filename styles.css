@@ -1,0 +1,484 @@
+/* --- CORE VARIABLES & RESET --- */
+:root {
+    /* Colors */
+    --color-green: #2e7d32;     /* Deep Green (Primary/Eco) */
+    --color-gold: #fbc02d;      /* Soft Gold (Accent/Adventure) */
+    --color-beige: #f5f5dc;     /* Beige (Neutral Background) */
+    --color-white: #ffffff;
+    --color-dark: #333333;
+
+    /* Fonts */
+    --font-header: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Spacing */
+    --padding-lg: 100px 5%;
+    --padding-sm: 50px 5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Smooth transition for all elements, enables subtle hover effects */
+    transition: all 0.3s ease-in-out; 
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-header);
+    color: var(--color-green);
+    font-weight: 600;
+}
+
+/* --- Utility Classes & CTAs --- */
+.cta-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.cta-primary:hover {
+    background-color: #ffca28; 
+    transform: translateY(-2px);
+}
+
+.cta-secondary {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--color-green);
+    color: var(--color-green);
+    text-decoration: none;
+    border-radius: 5px;
+}
+.cta-secondary:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+section {
+    padding: var(--padding-lg);
+    overflow: hidden; 
+}
+
+/* --- 1. HEADER --- */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Masked Logo Effect */
+.logo-masked {
+    font-family: var(--font-header);
+    font-size: 1.8em;
+    font-weight: 700;
+    background: url('/images/mask.jpg') repeat; 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+    background-size: cover; 
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--color-dark);
+    padding: 10px 15px;
+}
+.main-nav ul li a:hover {
+    color: var(--color-green);
+}
+
+.lang-toggle {
+    background: var(--color-beige);
+    border: 1px solid var(--color-gold);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.hamburger-menu {
+    display: none; 
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* --- 2. HERO SECTION --- */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.hero-slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slogan-box {
+    color: var(--color-white);
+    max-width: 800px;
+    padding: 20px;
+}
+
+.slogan {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 3. LIVE WEATHER WIDGET --- */
+.weather-section {
+    padding: 40px 5%;
+    position: relative;
+    color: var(--color-white);
+    text-align: center;
+    overflow: hidden;
+    min-height: 250px;
+}
+
+.weather-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: 1;
+}
+
+.weather-info {
+    position: relative;
+    z-index: 2;
+}
+
+.current-temp {
+    font-size: 4em;
+    font-weight: 700;
+    margin: 10px 0;
+}
+.weather-info h2 {
+    color: var(--color-white);
+}
+
+/* --- 4. ABOUT DEDZA --- */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    background-color: var(--color-beige);
+}
+
+.content-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 5. EXPLORE DEDZA (Attraction Grid) --- */
+.attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.card {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(46, 125, 50, 0.8); 
+    color: var(--color-white);
+    font-family: var(--font-header);
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+/* --- 6. TEAM SECTION (Guides) --- */
+.team-section {
+    text-align: center;
+    background-color: var(--color-beige);
+}
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+}
+
+.guide-card {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.guide-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 5px solid var(--color-gold); 
+}
+.guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 7. BOOKING SECTION --- */
+.booking-section {
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.booking-content {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 50px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.booking-content h2 {
+    color: var(--color-gold);
+}
+
+.eco-pledge {
+    background: var(--color-green);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.booking-form input, .booking-form select, .booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+}
+
+.booking-form .cta-primary {
+    width: 100%;
+}
+
+/* --- 8. TESTIMONIALS (For JS Auto-slide) --- */
+.testimonials-section {
+    text-align: center;
+}
+.testimonial-carousel {
+    display: flex; 
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+    /* CSS for JS transition */
+    transition: transform 0.6s ease-in-out; 
+}
+
+.testimonial-slide {
+    flex: 0 0 100%; /* Important: Each slide takes 100% of the container width */
+    padding: 20px;
+}
+
+.testimonial-slide img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-green);
+    margin-bottom: 15px;
+}
+
+/* --- 9. BLOG SECTION --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* --- 10. GALLERY SECTION --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: zoom-in;
+    filter: brightness(0.9);
+}
+.gallery-grid img:hover {
+    filter: brightness(1);
+    transform: scale(1.02);
+}
+
+/* --- 11. ADVERTISE WITH US --- */
+.advertise-section {
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    padding: 80px 5%;
+    text-align: left;
+}
+.advertise-content {
+    background-color: rgba(46, 125, 50, 0.7); 
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+.advertise-content h2 {
+    color: var(--color-gold);
+}
+
+/* --- 12. FOOTER --- */
+#main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 50px 5% 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-map .map-placeholder {
+    height: 200px;
+    background-color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+/* Responsive CSS for Mobile Menu (Hidden/Show) */
+@media (max-width: 768px) {
+    .slogan {
+        font-size: 2.5em;
+    }
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--color-white);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    .main-nav.nav-active {
+        display: block;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .main-nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--color-beige);
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+    .content-image {
+        order: -1; 
+    }
+    .attraction-grid, .guides-grid, .blog-grid, .gallery-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+      }
+  
